@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  liquidator:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NETWORK=coston
+      - REGISTRY_ADDRESS=${REGISTRY_ADDRESS}
+      - FASSETS_ADDRESS=${FASSETS_ADDRESS}
+    volumes:
+      - ./secrets.json:/app/secrets.json:ro
+      - ./logs:/app/logs
